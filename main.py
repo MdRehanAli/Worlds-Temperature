@@ -41,12 +41,14 @@ print(X_train, X_test, y_train, y_test)
 # Training model
 reg = LinearRegression()
 
-print(reg.fit(X_train, y_train))
+reg.fit(X_train, y_train)
 
 
 
         # Testing
-print(reg.predict([[2123]]))
+Testing_year = 2123
+print("\nAverage Temperature of the predicted year(" + str(Testing_year)+ ") is:")
+print(reg.predict([[Testing_year]]))
 
 
 
@@ -71,5 +73,15 @@ plt.ylabel('Average Temperature in Celcius')
 plt.legend()
 
 # show plot
+plt.show()
+
+
+# Average Temperature Over the years
+plt.figure(figsize=(10, 6))
+sns.lineplot(x='Year', y='Average_Temperature_in_C', data=data, marker='o')
+plt.title('Average Fahrenheit Temperature Over the Years')
+plt.xlabel('Year')
+plt.ylabel('Average Fahrenheit Temperature')
+plt.grid(True)
 plt.show()
 
