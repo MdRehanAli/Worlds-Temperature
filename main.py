@@ -1,7 +1,10 @@
 #Worlds Temperature Prediction
 
 import numpy as np # linear algebra
+import matplotlib.pyplot as plt #For Graphical Representation
+from scipy.stats import linregress
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import seaborn as sns
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression #Sklearn for the main model & LinearRegression model for regression
@@ -40,7 +43,33 @@ reg = LinearRegression()
 
 print(reg.fit(X_train, y_train))
 
-# Testing
+
+
+        # Testing
 print(reg.predict([[2123]]))
 
+
+
+
+# Again Getting values for Graph
+x = data['Year']
+y = data['Average_Temperature_in_C']
+
+# calculate regression
+slope, intercept, r_value, p_value, std_err = linregress(x, y)
+
+# scatter plot
+plt.scatter(x, y)
+
+# regressions line
+regression_line = slope * x + intercept
+plt.plot(x, regression_line, color='red', label='Linear Regression')
+
+# rename labels
+plt.xlabel('Year')
+plt.ylabel('Average Temperature in Celcius')
+plt.legend()
+
+# show plot
+plt.show()
 
