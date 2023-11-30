@@ -34,3 +34,13 @@ print(f"The maximum temperature of {max_temperature_value}°C occurred on {max_t
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 print(X_train, X_test, y_train, y_test)
+
+# Training model
+reg = LinearRegression()
+
+print(reg.fit(X_train, y_train))
+
+# Testing
+print(reg.predict([[2123]]))
+
+
