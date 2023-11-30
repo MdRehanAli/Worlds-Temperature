@@ -21,3 +21,16 @@ y = data[['Average_Temperature_in_C']].values
 
 print(X, y)
 
+# Finding the Min and Max temperatures from the dataset.
+min_temperature_date = data.loc[data['Average_Temperature_in_C'].idxmin(), 'Year']
+min_temperature_value = data['Average_Temperature_in_C'].min()
+max_temperature_date = data.loc[data['Average_Temperature_in_C'].idxmax(), 'Year']
+max_temperature_value = data['Average_Temperature_in_C'].max()
+
+print(f"The minimum temperature of {min_temperature_value}°C occurred on {min_temperature_date}.")
+print(f"The maximum temperature of {max_temperature_value}°C occurred on {max_temperature_date}.")
+
+# Split to training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+print(X_train, X_test, y_train, y_test)
